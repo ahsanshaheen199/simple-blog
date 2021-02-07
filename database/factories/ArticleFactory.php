@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ArticleFactory extends Factory
@@ -22,9 +23,10 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(4),
-            'excerpt'   => $this->faker->text(8),
-            'body'   => $this->faker->text(30)
+            'title'     => $this->faker->sentence(4),
+            'user_id'   => User::factory(),
+            'excerpt'   => $this->faker->sentence(8),
+            'body'      => $this->faker->paragraph(4)
         ];
     }
 }
